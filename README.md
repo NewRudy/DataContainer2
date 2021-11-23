@@ -1,5 +1,7 @@
 # file-online-preview
 此项目为文件文档在线预览项目解决方案，对标业内付费产品有【[永中office](http://dcs.yozosoft.com/)】【[office365](http://www.officeweb365.com/)】【[idocv](https://www.idocv.com/)】等，在取得公司高层同意后以Apache协议开源出来反哺社区，在此特别感谢@唐老大的支持以及@端木详笑的贡献。该项目使用流行的spring boot搭建，易上手和部署，基本支持主流办公文档的在线预览，如doc,docx,Excel,pdf,txt,zip,rar,图片等等
+---
+刚fork的原来的开源项目，想要增加一些地理数据的预览，既然cad格式的文件都可以支持，应该也能按照这些流程增加一些新的文件格式，感谢大佬开源
 ### 项目特性
 
 1. 支持 office, pdf, cad 等办公文档
