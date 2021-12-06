@@ -5,6 +5,7 @@ import cn.keking.model.FileAttribute;
 import cn.keking.model.ReturnResponse;
 import cn.keking.service.FilePreview;
 import cn.keking.utils.DownloadUtils;
+import cn.keking.utils.ConvertFile;
 import cn.keking.service.FileHandlerService;
 import cn.keking.service.OfficeToPdfService;
 import cn.keking.web.filter.BaseUrlFilter;
@@ -42,7 +43,7 @@ public class OfficeFilePreviewImpl implements FilePreview {
         String baseUrl = BaseUrlFilter.getBaseUrl();
         String suffix = fileAttribute.getSuffix();
         String fileName = fileAttribute.getName();
-        boolean isHtml = suffix.equalsIgnoreCase("xls") || suffix.equalsIgnoreCase("xlsx");
+        boolean isHtml = suffix.equalsIgnoreCase("xls") || suffix.equalsIgnoreCase("xlsx") || suffix.equalsIgnoreCase("csv");
         String pdfName = fileName.substring(0, fileName.lastIndexOf(".") + 1) + (isHtml ? "html" : "pdf");
         String outFilePath = FILE_DIR + pdfName;
         // 判断之前是否已转换过，如果转换过，直接返回，否则执行转换
@@ -53,6 +54,16 @@ public class OfficeFilePreviewImpl implements FilePreview {
                 return otherFilePreview.notSupportedFile(model, fileAttribute, response.getMsg());
             }
             filePath = response.getContent();
+            // 在这里加上文件转换的功能
+            if(suffix.equalsIgnoreCase("csv")) {
+                try{
+                    String desPath = filePath.replace("csv", "xlsx");
+                    ConvertFile.convert(filePath, filePath.replace(".csv", ".xlsx"));
+                    filePath = desPath;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if (StringUtils.hasText(outFilePath)) {
                 officeToPdfService.openOfficeToPDF(filePath, outFilePath);
                 if (isHtml) {

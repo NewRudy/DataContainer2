@@ -14,6 +14,7 @@ import jodd.io.NetUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -67,6 +68,18 @@ public class OnlinePreviewController {
         logger.info("预览文件url：{}，previewType：{}", fileUrl, fileAttribute.getType());
         return filePreview.filePreviewHandle(fileUrl, model, fileAttribute);
     }
+
+    // @RequestMapping(value = "/preview")
+    // public String preview(String url, Model model, HttpServletRequest req) {
+    //     String fileUrl;
+    //     try {
+    //         fileUrl = new String(Base64.decodeBase64(url), StandardCharsets.UTF_8);
+    //     } catch (Exception ex) {
+    //         String errorMsg = String.format(BASE64_DECODE_ERROR_MSG, "url");
+    //         return otherFilePreview.notSupportedFile(model, errorMsg);
+    //     }
+    //
+    // }
 
     @RequestMapping(value = "/picturesPreview")
     public String picturesPreview(String urls, Model model, HttpServletRequest req) throws UnsupportedEncodingException {

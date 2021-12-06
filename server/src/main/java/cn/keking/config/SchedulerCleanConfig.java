@@ -29,9 +29,10 @@ public class SchedulerCleanConfig {
     //默认每晚3点执行一次
     @Scheduled(cron = "${cache.clean.cron:0 0 3 * * ?}")
     public void clean() {
-        logger.info("Cache clean start");
-        cacheService.cleanCache();
-        KkFileUtils.deleteDirectory(fileDir);
-        logger.info("Cache clean end");
+        return;
+        // logger.info("Cache clean start");
+        // cacheService.cleanCache();
+        // KkFileUtils.deleteDirectory(fileDir);
+        // logger.info("Cache clean end");
     }
 }
