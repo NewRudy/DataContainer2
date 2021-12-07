@@ -53,6 +53,7 @@ public class OnlinePreviewController {
         this.otherFilePreview = otherFilePreview;
     }
 
+    // 该情况仅适用于url中有文件名的情况
     @RequestMapping(value = "/onlinePreview")
     public String onlinePreview(String url, Model model, HttpServletRequest req) {
         String fileUrl;
@@ -69,6 +70,7 @@ public class OnlinePreviewController {
         return filePreview.filePreviewHandle(fileUrl, model, fileAttribute);
     }
 
+    // 换了一种上传下载的方式，根据 id 进行预览
     // @RequestMapping(value = "/preview")
     // public String preview(String url, Model model, HttpServletRequest req) {
     //     String fileUrl;
