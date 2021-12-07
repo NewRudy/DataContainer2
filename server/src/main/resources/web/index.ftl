@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"/>
-    <title>kkFileView演示首页</title>
+    <title>kkFileView && dataContainter 演示首页</title>
     <link rel="stylesheet" href="css/viewer.min.css"/>
     <link rel="stylesheet" href="css/loading.css"/>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
@@ -20,7 +20,7 @@
 
 <body>
 <div class="panel-group container" id="accordion">
-    <h1>文件预览项目接入和测试界面</h1>
+    <h1>数据上传、下载及预览 测试界面</h1>
 
     <div class="panel panel-default">
         <div class="panel-heading">

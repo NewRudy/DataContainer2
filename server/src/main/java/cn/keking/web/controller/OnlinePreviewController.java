@@ -36,6 +36,7 @@ import static cn.keking.service.FilePreview.PICTURE_FILE_PREVIEW_PAGE;
  * @author yudian-it
  */
 @Controller
+@RequestMapping(value = "/api2doc")
 public class OnlinePreviewController {
 
     public static final String BASE64_DECODE_ERROR_MSG = "Base64解码失败，请检查你的 %s 是否采用 Base64 + urlEncode 双重编码了！";
@@ -53,7 +54,13 @@ public class OnlinePreviewController {
         this.otherFilePreview = otherFilePreview;
     }
 
-    // 该情况仅适用于url中有文件名的情况
+    /**
+     * 根据下载链接 url 文件预览，该情况仅适用于url中有文件名的情况
+     * @param url
+     * @param model
+     * @param req
+     * @return
+     */
     @RequestMapping(value = "/onlinePreview")
     public String onlinePreview(String url, Model model, HttpServletRequest req) {
         String fileUrl;
@@ -83,6 +90,14 @@ public class OnlinePreviewController {
     //
     // }
 
+    /**
+     * 图片预览，可以预览多个图片
+     * @param urls
+     * @param model
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping(value = "/picturesPreview")
     public String picturesPreview(String urls, Model model, HttpServletRequest req) throws UnsupportedEncodingException {
         String fileUrls;
