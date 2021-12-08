@@ -36,7 +36,6 @@ import static cn.keking.service.FilePreview.PICTURE_FILE_PREVIEW_PAGE;
  * @author yudian-it
  */
 @Controller
-@RequestMapping(value = "/api2doc")
 public class OnlinePreviewController {
 
     public static final String BASE64_DECODE_ERROR_MSG = "Base64解码失败，请检查你的 %s 是否采用 Base64 + urlEncode 双重编码了！";

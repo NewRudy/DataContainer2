@@ -31,7 +31,6 @@ import static cn.keking.config.FavFTPUtil.uploadFileFromProduction;
  */
 @RestController
 @Slf4j
-@RequestMapping(value = "/api2doc")
 public class DataContainerController {
     @Autowired
     ImageDao imageDao;

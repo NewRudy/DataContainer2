@@ -25,7 +25,6 @@ import org.springframework.web.util.HtmlUtils;
  * @date 2017/12/1
  */
 @RestController
-@RequestMapping(value = "/api2doc")
 public class FileController {
 
     private final Logger logger = LoggerFactory.getLogger(FileController.class);
