@@ -1,122 +1,20 @@
-十二月 07, 2021 3:47:55 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:15 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find multi modules in this project: [office-plugin, server]
-十二月 07, 2021 3:47:56 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:16 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find java src paths:  [E:\dataServer\DataContainer2\office-plugin\src\main\java\, E:\dataServer\DataContainer2\server\src\main\java\]
-十二月 07, 2021 3:47:56 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:16 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: project type not set, try to figure out...
-十二月 07, 2021 3:47:57 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:17 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: start find controllers in path : E:\dataServer\DataContainer2\office-plugin\src\main\java\
-十二月 07, 2021 3:47:57 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:17 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: start find controllers in path : E:\dataServer\DataContainer2\server\src\main\java\
-十二月 07, 2021 3:47:59 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:19 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find controller file : DataContainerController.java
-十二月 07, 2021 3:47:59 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:19 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find controller file : FileController.java
-十二月 07, 2021 3:47:59 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:19 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find controller file : IndexController.java
-十二月 07, 2021 3:47:59 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:19 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: find controller file : OnlinePreviewController.java
-十二月 07, 2021 3:47:59 下午 io.github.yedaxia.apidocs.LogUtils info
+十二月 08, 2021 11:00:19 下午 io.github.yedaxia.apidocs.LogUtils info
 信息: info: start to parse controller file : DataContainerController.java
-十二月 07, 2021 3:48:00 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:00 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:02 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:02 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:02 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:02 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:03 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:03 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:05 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:05 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:06 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:06 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:07 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:07 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:08 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:08 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:08 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:08 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:09 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:09 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:09 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:09 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:10 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: we think T should not be an enum type
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils warn
-警告: warning!! Cannot find java file , in java file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\bean\JsonResult.java, className : T, we cannot found more information of it, you've better to make it a JavaBean
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to parse controller file : DataContainerController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to parse controller file : FileController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to parse controller file : FileController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to parse controller file : IndexController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to parse controller file : IndexController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to parse controller file : OnlinePreviewController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to parse controller file : OnlinePreviewController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: generate api docs start...
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\DataContainerController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\DataContainerController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\FileController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\FileController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\IndexController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\IndexController.java
-十二月 07, 2021 3:48:11 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: start to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\OnlinePreviewController.java
-十二月 07, 2021 3:48:12 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: success to generate docs for controller file : E:\dataServer\DataContainer2\server\src\main\java\cn\keking\web\controller\OnlinePreviewController.java
-十二月 07, 2021 3:48:12 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: generate index start !!!
-十二月 07, 2021 3:48:12 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: generate index done !!!
-十二月 07, 2021 3:48:12 下午 io.github.yedaxia.apidocs.LogUtils info
-信息: info: generate api docs done !!!

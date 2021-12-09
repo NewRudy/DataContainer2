@@ -32,12 +32,12 @@ public class ConvertFile {
 
 
     /**
-     *
+     * csv to xlsx
      * @param src csv文件
-     * @param des excel文件
+     * @param des xlsx 文件
      * @throws Exception
      */
-    public static Boolean convert(String src, String des) throws Exception {
+    public static Boolean csv2xlsx(String src, String des) throws Exception {
         //计时器
 
         long startTime = System.currentTimeMillis();
@@ -96,9 +96,8 @@ public class ConvertFile {
         // log.info("转换总耗时{}秒", clock.stop().getSeconds());
     }
 
-
     public static void main(String[] args) throws Exception {
         //测试
-        convert("C:\\Users\\wutian\\Desktop\\test.csv","C:\\Users\\wutian\\Desktop\\test.xlsx");
+        csv2xlsx("C:\\Users\\wutian\\Desktop\\test.csv","C:\\Users\\wutian\\Desktop\\test.xlsx");
     }
 }

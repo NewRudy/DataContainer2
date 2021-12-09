@@ -1,6 +1,8 @@
 package cn.keking.utils;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -347,4 +349,35 @@ public class FileUtil {
 //            }
 //        }
 //    }
+    /**
+     * 生成cpg文件
+     *
+     * @param filePath 文件完整路径
+     * @param charset  文件编码
+     * @return 是否生成成功
+     */
+    public static boolean generateCpgFile(String filePath, Charset charset) {
+        try {
+            File file = new File(filePath);
+            if (!file.exists()) {
+                return false;
+            }
+            String tempPath = file.getPath();
+            int index = tempPath.lastIndexOf('.');
+            String name = tempPath.substring(0,index);
+            String cpgFilePath = name + ".cpg";
+            File cpgFile = new File(cpgFilePath);
+            if (cpgFile.exists()) {
+                return true;
+            }
+            boolean newFile = cpgFile.createNewFile();
+            if (newFile) {
+                Files.write(cpgFile.toPath(), charset.toString().getBytes(charset));
+            }
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

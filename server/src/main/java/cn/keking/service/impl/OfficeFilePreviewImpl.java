@@ -58,7 +58,7 @@ public class OfficeFilePreviewImpl implements FilePreview {
             if(suffix.equalsIgnoreCase("csv")) {
                 try{
                     String desPath = filePath.replace("csv", "xlsx");
-                    ConvertFile.convert(filePath, filePath.replace(".csv", ".xlsx"));
+                    ConvertFile.csv2xlsx(filePath, filePath.replace(".csv", ".xlsx"));
                     filePath = desPath;
                 } catch (Exception e) {
                     e.printStackTrace();
