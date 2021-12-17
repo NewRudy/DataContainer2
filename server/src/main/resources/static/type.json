@@ -1,0 +1,10 @@
+{
+"OFFICE_TYPES": ["docx", "wps", "doc", "xls", "xlsx", "csv", "ppt", "pptx"],
+"PICTURE_TYPES": ["jpg", "jpeg", "png", "gif", "bmp", "ico", "raw"],
+"ARCHIVE_TYPES": ["rar", "zip", "jar", "7-zip", "tar", "gzip", "7z"],
+"TIFF_TYPES": ["tif", "tiff"],
+"OFD_TYPES": ["ofd"],
+"CAD_TYPES": ["dwg", "dxf"],
+"CODES_TYPES": ["java", "c", "php", "go", "python", "py", "js", "html", "ftl", "css", "lua", "sh", "rb", "yaml", "yml", "json", "h", "cpp", "cs", "aspx", "jsp"],
+"Markdown": ["md"]
+}
