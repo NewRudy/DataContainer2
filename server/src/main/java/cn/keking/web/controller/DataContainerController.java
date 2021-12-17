@@ -314,6 +314,21 @@ public class DataContainerController {
     }
 
     /**
+     * @description:  因为预览必须要有一个 filename 的参数，写了一个无用的接口
+     * @param: [uid, filename, type, response]
+     * @return: void
+     * @author: Tian
+     * @date: 2021/12/17 14:42
+     */
+    @RequestMapping(value = "/data/{uid}/{filename}", method = RequestMethod.GET)
+    public void downloadFileWithName(@PathVariable String uid, @PathVariable String filename, @RequestParam(value = "type", required = false)String type,
+                                     HttpServletResponse response) throws  UnsupportedEncodingException {
+        boolean downLoadLog = false;
+        String oid = uid;
+        downLoadLog = dataContainer.downLoad(oid,response, type);
+    }
+
+    /**
      * 删除指定上传数据
      * @param uid 待删数据uid
      * @return 删除结果

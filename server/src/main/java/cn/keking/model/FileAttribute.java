@@ -15,6 +15,8 @@ public class FileAttribute {
     private String fileKey;
     private String officePreviewType = ConfigConstants.getOfficePreviewType();
 
+    private String path;
+
     public FileAttribute() {
     }
 
@@ -80,4 +82,8 @@ public class FileAttribute {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getPath() {return path;}
+
+    public void setPath(String path) {this.path = path;}
 }

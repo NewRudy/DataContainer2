@@ -1,6 +1,10 @@
 package cn.keking.service;
 
 import cn.keking.config.ConfigConstants;
+import cn.keking.dao.BulkDataLinkDao;
+import cn.keking.dao.DataListComDao;
+import cn.keking.entity.BulkDataLink;
+import cn.keking.entity.DataListCom;
 import cn.keking.model.FileAttribute;
 import cn.keking.model.FileType;
 import cn.keking.service.cache.CacheService;
@@ -10,12 +14,14 @@ import com.aspose.cad.Color;
 import com.aspose.cad.fileformats.cad.CadDrawTypeMode;
 import com.aspose.cad.imageoptions.CadRasterizationOptions;
 import com.aspose.cad.imageoptions.PdfOptions;
+import com.sun.star.task.ErrorCodeIOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.pdfbox.tools.imageio.ImageIOUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -36,14 +42,21 @@ import java.util.Map;
 @Component
 public class FileHandlerService {
 
+    @Autowired
+    BulkDataLinkDao bulkDataLinkDao;
+
+    @Autowired
+    DataListComDao dataListComDao;
+
     private final Logger logger = LoggerFactory.getLogger(FileHandlerService.class);
 
     private static final String DEFAULT_CONVERTER_CHARSET = System.getProperty("sun.jnu.encoding");
-    private final String fileDir = ConfigConstants.getFileDir();
+    private String fileDir = ConfigConstants.getFileDir();
     private final CacheService cacheService;
 
     @Value("${server.tomcat.uri-encoding:UTF-8}")
     private String uriEncoding;
+
 
     public FileHandlerService(CacheService cacheService) {
         this.cacheService = cacheService;
@@ -273,6 +286,7 @@ public class FileHandlerService {
         attribute.setType(type);
         attribute.setName(fileName);
         attribute.setSuffix(suffix);
+        attribute.setPath(ConfigConstants.getFileDir());
         url = WebUtils.encodeUrlFileName(url);
         attribute.setUrl(url);
         if (req != null) {
@@ -284,6 +298,58 @@ public class FileHandlerService {
             if (StringUtils.hasText(fileKey)) {
                 attribute.setFileKey(fileKey);
             }
+        }
+        return attribute;
+    }
+
+    public FileAttribute getUidFileAttribute(String uid, String url, HttpServletRequest req) {
+        FileAttribute attribute = new FileAttribute();
+        try {
+            String suffix;
+            FileType type;
+            String fileName;
+            String fullFileName;
+            String path;
+
+            // uid 有三种情况，一种是 bulkDataLink, 一种是 dataListCom, 一种是 错误的 id
+            BulkDataLink bulkDataLink = bulkDataLinkDao.findFirstByZipOid(uid);
+            if(bulkDataLink == null) {
+                DataListCom dataListCom = dataListComDao.findFirstByOid(uid);
+                if(dataListCom == null) {
+                    throw new Exception("uid is wrong.");
+                }
+                fullFileName = dataListCom.getFileName();
+                path = dataListCom.getPath();
+            } else {
+                fullFileName = bulkDataLink.getName();
+                path = bulkDataLink.getPath();
+            }
+            fileName = fullFileName;
+            type = FileType.typeFromFileName(fullFileName);
+            suffix = KkFileUtils.suffixFromFileName(fullFileName);
+
+            attribute.setType(type);
+            attribute.setName(fileName);
+            attribute.setSuffix(suffix);
+            // ConfigConstants.setFileDirValue(path);
+            attribute.setPath(path);
+            if(!url.split("/")[url.split("/").length - 1].contains(".")) {
+                url += "/" + fileName;
+            }
+            url = WebUtils.encodeUrlFileName(url);
+            attribute.setUrl(url);
+            if (req != null) {
+                String officePreviewType = req.getParameter("officePreviewType");
+                String fileKey = WebUtils.getUrlParameterReg(url,"fileKey");
+                if (StringUtils.hasText(officePreviewType)) {
+                    attribute.setOfficePreviewType(officePreviewType);
+                }
+                if (StringUtils.hasText(fileKey)) {
+                    attribute.setFileKey(fileKey);
+                }
+            }
+        } catch (Exception error) {
+            logger.error("error: " + error);
         }
         return attribute;
     }

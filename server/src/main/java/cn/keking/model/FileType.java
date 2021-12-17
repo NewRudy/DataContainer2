@@ -76,7 +76,7 @@ public enum FileType {
         FILE_TYPE_MAPPER.put("flv", FileType.FLV);
     }
 
-    private static FileType to(String fileType) {
+    public static FileType to(String fileType) {
         return FILE_TYPE_MAPPER.getOrDefault(fileType, OTHER);
     }
 

@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -69,23 +70,46 @@ public class OnlinePreviewController {
             String errorMsg = String.format(BASE64_DECODE_ERROR_MSG, "url");
             return otherFilePreview.notSupportedFile(model, errorMsg);
         }
-        FileAttribute fileAttribute = fileHandlerService.getFileAttribute(fileUrl, req);
+        FileAttribute fileAttribute;
+        String nameOrUid = fileUrl.split("/")[fileUrl.split("/").length - 1];
+        if(nameOrUid.contains(".")) {
+            fileAttribute = fileHandlerService.getFileAttribute(fileUrl, req);
+        } else {
+            fileAttribute = fileHandlerService.getUidFileAttribute(nameOrUid, fileUrl, req);
+            fileUrl = fileAttribute.getUrl();
+        }
+
         model.addAttribute("file", fileAttribute);
         FilePreview filePreview = previewFactory.get(fileAttribute);
         logger.info("预览文件url：{}，previewType：{}", fileUrl, fileAttribute.getType());
         return filePreview.filePreviewHandle(fileUrl, model, fileAttribute);
     }
 
-    // 换了一种上传下载的方式，根据 id 进行预览
-    // @RequestMapping(value = "/preview")
-    // public String preview(String url, Model model, HttpServletRequest req) {
+    /*
+     * @description:  测试用的，已经遗弃
+     * @param: [url, model, req]
+     * @return: java.lang.String
+     * @author: Tian
+     * @date: 2021/12/13 20:12
+     */
+    // @RequestMapping(value = "/preview/{uid}", method = RequestMethod.GET)
+    // public String preview(@PathVariable String uid, Model model, HttpServletRequest req) {
     //     String fileUrl;
     //     try {
-    //         fileUrl = new String(Base64.decodeBase64(url), StandardCharsets.UTF_8);
+    //         uid = new String(Base64.decodeBase64(uid), StandardCharsets.UTF_8);
+    //         fileUrl = "http://127.0.0.1:8082/data/" + uid;
     //     } catch (Exception ex) {
     //         String errorMsg = String.format(BASE64_DECODE_ERROR_MSG, "url");
     //         return otherFilePreview.notSupportedFile(model, errorMsg);
     //     }
+    //     FileAttribute fileAttribute = fileHandlerService.getUidFileAttribute(uid, fileUrl, req);
+    //     fileUrl = fileAttribute.getUrl();
+    //     model.addAttribute("file", fileAttribute);
+    //     FilePreview filePreview = previewFactory.get(fileAttribute);
+    //
+    //     // filePreview.fileDir = fileAttribute.getPath();
+    //     logger.info("预览文件url：{}，previewType：{}", fileUrl, fileAttribute.getType());
+    //     return filePreview.filePreviewHandle(fileUrl, model, fileAttribute);
     //
     // }
 
