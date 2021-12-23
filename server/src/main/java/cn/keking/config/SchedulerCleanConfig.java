@@ -26,13 +26,12 @@ public class SchedulerCleanConfig {
 
     private final String fileDir = ConfigConstants.getFileDir();
 
-    //默认每晚3点执行一次
+    //默认每晚3点执行一次, 删除所有缓存
     @Scheduled(cron = "${cache.clean.cron:0 0 3 * * ?}")
     public void clean() {
-        return;
-        // logger.info("Cache clean start");
-        // cacheService.cleanCache();
-        // KkFileUtils.deleteDirectory(fileDir);
-        // logger.info("Cache clean end");
+        logger.info("Cache clean start");
+        cacheService.cleanCache();
+        KkFileUtils.deleteDirectory(fileDir);
+        logger.info("Cache clean end");
     }
 }
