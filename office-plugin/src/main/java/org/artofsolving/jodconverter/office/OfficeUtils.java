@@ -82,6 +82,7 @@ public class OfficeUtils {
         if (PlatformUtils.isWindows()) {
             // %ProgramFiles(x86)% on 64-bit machines; %ProgramFiles% on 32-bit ones
             String  officePluginPath = ConfigUtils.getOfficePluginPath();
+            // String officePluginPath = "E:\\dataServer\\DataContainer2\\office-plugin";
             String programFiles = System.getenv("ProgramFiles(x86)");
             if (programFiles == null) {
                 programFiles = System.getenv("ProgramFiles");

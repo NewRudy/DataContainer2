@@ -8,7 +8,7 @@ public class TestApi {
     public static void main(String[] args) {
         DocsConfig config = new DocsConfig();
         // 项目根目录
-        config.setProjectPath("E:\\dataServer\\DataContainer2");
+        config.setProjectPath("E:\\dataServer\\DataContainer2\\server");
         // 项目名称
         config.setProjectName("DataContainer2");
         // 声明该API的版本

@@ -57,10 +57,10 @@ class OfficeProcess {
     public void start(boolean restart) throws IOException {
         ProcessQuery processQuery = new ProcessQuery("soffice.bin", unoUrl.getAcceptString());
         long existingPid = processManager.findPid(processQuery);
-    	if (!(existingPid == PID_NOT_FOUND || existingPid == PID_UNKNOWN)) {
-			throw new IllegalStateException(String.format("a process with acceptString '%s' is already running; pid %d",
-			        unoUrl.getAcceptString(), existingPid));
-        }
+    	// if (!(existingPid == PID_NOT_FOUND || existingPid == PID_UNKNOWN)) {
+		// 	throw new IllegalStateException(String.format("a process with acceptString '%s' is already running; pid %d",
+		// 	        unoUrl.getAcceptString(), existingPid));
+        // }
     	if (!restart) {
     	    prepareInstanceProfileDir();
     	}
@@ -163,9 +163,9 @@ class OfficeProcess {
     }
 
     private class ExitCodeRetryable extends Retryable {
-        
+
         private int exitCode;
-        
+
         protected void attempt() throws TemporaryException, Exception {
             try {
                 exitCode = process.exitValue();
@@ -173,7 +173,7 @@ class OfficeProcess {
                 throw new TemporaryException(illegalThreadStateException);
             }
         }
-        
+
         public int getExitCode() {
             return exitCode;
         }
