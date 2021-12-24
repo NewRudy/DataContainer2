@@ -3,7 +3,7 @@
 [toc]
 
 ## 概述
-三个项目丑陋的融合了一下，后期好好改一下
+两个个项目丑陋的融合了一下：
 
 1. 文件预览使用的：[kkFileView](https://github.com/kekingcn/kkFileView) 开源项目（感谢大佬开源），该项目为文件文档在线预览项目解决方案，支持主流办公文档的在线预览，但是原来的项目对我有三点不足，因此做了一些改进：
 
@@ -11,8 +11,7 @@
 - 缺少数据管理，个人认为应该将数据的元数据入库进行更好的管理
 - 缺少地理数据的可视化（我是学 gis 的，加了一些可视化的方法）
 
-2. POI 获取和处理工具，及一些地理数据格式的转换：[AMapPoi](https://github.com/Civitasv/AMapPoi)
-3. 文件上传下载及数据管理用的师兄写的一个东西：[DataContainer](https://github.com/limingyuan123/DataContainer)
+2. 文件上传下载及数据管理用的师兄写的一个东西：[DataContainer](https://github.com/limingyuan123/DataContainer)
 
 
 ## 项目原始资源

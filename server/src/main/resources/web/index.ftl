@@ -47,7 +47,7 @@
                     formData.append('datafile', document.getElementById('inputFile').files[0])
                     fetch(uploadUrl, {method: 'POST', body: formData})
                     .then(response => {
-                        if(response.status == 200){ 
+                        if(response.status == 200){
                             return response.json()
                         }
                         else throw new Error('服务端错误')
@@ -72,7 +72,7 @@
             </div>
             <div class="panel-body">
                 <div style="padding: 8px;">
-                    <form enctype="multipart/form-data" id="fileUpload">
+                    <form enctype="multipart/form-data">
                         <div class='common-font' style='display: inline-block'>名字：</div>
                         <input id="name1" class='input-class' style='margin-right: 50px'/>
                         <div class='common-font' style='display: inline-block'>选择一个文件：</div>
@@ -84,7 +84,7 @@
             </div>
             <div class="panel-body">
                 <div style="padding: 8px;">
-                    <form enctype="multipart/form-data" id="fileUpload">
+                    <form enctype="multipart/form-data">
                         <div class='common-font' style='display: inline-block'>名字：</div>
                         <input id="name2" class='input-class' style='margin-right: 50px'/>
                         <div class='common-font' style='display: inline-block'>选择多个文件：</div>
@@ -172,6 +172,15 @@
                     </form>
                 </div>
             </#if>
+<#--            <#if fileUploadDisable == false>-->
+<#--                <div style="padding: 10px">-->
+<#--                    &lt;#&ndash;  <form enctype="multipart/form-data" id="fileUpload">  &ndash;&gt;-->
+<#--                        <input id='demofile' type="file" name="file" class='input-class' style="width: 600px"/>-->
+<#--                        <input type="button" id="btnSubmit" value=" 上 传 " class='btn btn-default'/>-->
+<#--                        <div class='common-font' style='display: inline-block'>使用的临时文件接口，每日凌晨3点会统一删除</div>-->
+<#--                    &lt;#&ndash;  </form>  &ndash;&gt;-->
+<#--                </div>-->
+<#--            </#if>-->
             <div>
                 <table id="table" data-pagination="true"></table>
             </div>
@@ -233,9 +242,9 @@
                     formData.append('datafile', files[i])
                 }
             }
-            fetch(uploadUrl, {method: 'POST', body: formData})
+            fetch('data', {method: 'POST', body: formData})
             .then(response => {
-                if(response.status == 200){ 
+                if(response.status == 200){
                     return response.json()
                 }
                 else throw new Error('服务端错误')
@@ -248,7 +257,7 @@
             .catch(alert)
         } catch(err) {
             alert('上传失败: ', err)
-        }        
+        }
     }
 
     function downloadFile(url) {
@@ -257,7 +266,7 @@
             else alert('请先上传数据')
         } catch(err) {
             alert('下载失败: ', err)
-        }  
+        }
     }
 
     document.getElementById('uploadBtn1').addEventListener('click', () => {
@@ -274,7 +283,53 @@
     })
 
 
-
+    // document.getElementById("btnSubmit").addEventListener('click', () => {
+    //     showLoadingDiv();
+    //     /*
+    //     $("#fileUpload").ajaxSubmit({
+    //         success: function (data) {
+    //             // 上传完成，刷新table
+    //             if (1 === data.code) {
+    //                 alert(data.msg);
+    //             } else {
+    //                 $('#table').bootstrapTable('refresh', {});
+    //             }
+    //             $(".loading_container").hide();
+    //         },
+    //         error: function () {
+    //             alert('上传失败，请联系管理员');
+    //             $(".loading_container").hide();
+    //         },
+    //         url: 'fileUpload', // 设置post提交到的页面
+    //         type: "post", //设置表单以post方法提交
+    //         dataType: "json" //设置返回值类型为文本
+    //     });
+    //     */
+    //     let formData = new FormData()
+    //     formData.append('file', document.getElementById('demofile').files[0])
+    //     fetch('fileUpload', {method: 'POST', data: formData})
+    //     .then(response => {
+    //         if(response.status == 200) {
+    //             return response.json()
+    //         }
+    //         else new Error('错误 status ' + response.status)
+    //     })
+    //     .then(data => {
+    //         if(data.code == 1) {
+    //             // 上传完成，刷新table
+    //             if (1 === data.code) {
+    //                 alert(data.msg);
+    //             } else {
+    //                 $('#table').bootstrapTable('refresh', {});
+    //             }
+    //             $(".loading_container").hide();
+    //         }
+    //     })
+    //     .catch(err => {
+    //         alert('上传临时文件失败: ', err);
+    //         $(".loading_container").hide();
+    //     })
+    // });
     // 原项目代码，主要是数据预览部分
     function deleteFile(fileName) {
         $.ajax({
@@ -292,6 +347,11 @@
             }
         })
     }
+
+    // function showLoadingDiv() {
+    //         var height = window.document.documentElement.clientHeight - 1;
+    //         $(".loading_container").css("height", height).show();
+    // }
 
     $(function () {
         $('#table').bootstrapTable({
@@ -321,7 +381,6 @@
             urlField.val(b64Encoded);
         });
 
-
         function showLoadingDiv() {
             var height = window.document.documentElement.clientHeight - 1;
             $(".loading_container").css("height", height).show();
@@ -331,6 +390,7 @@
             $("#fileUpload").ajaxSubmit({
                 success: function (data) {
                     // 上传完成，刷新table
+                    alert('上传临时文件成功');
                     if (1 === data.code) {
                         alert(data.msg);
                     } else {
@@ -339,7 +399,7 @@
                     $(".loading_container").hide();
                 },
                 error: function () {
-                    alert('上传失败，请联系管理员');
+                    alert('上传临时文件失败');
                     $(".loading_container").hide();
                 },
                 url: 'fileUpload', /*设置post提交到的页面*/
@@ -347,18 +407,8 @@
                 dataType: "json" /*设置返回值类型为文本*/
             });
         });
-        // var gitalk = new Gitalk({
-        //     clientID: '525d7f16e17aab08cef5',
-        //     clientSecret: 'd1154e3aee5c8f1cbdc918b5c97a4f4157e0bfd9',
-        //     repo: 'kkFileView',
-        //     owner: 'kekingcn',
-        //     admin: ['kekingcn,klboke,gitchenjh'],
-        //     language: 'zh-CN',
-        //     id: location.pathname,
-        //     distractionFreeMode: false
-        // })
-        // gitalk.render((document.getElementById('comments')))
     });
+
 </script>
 </body>
 </html>
