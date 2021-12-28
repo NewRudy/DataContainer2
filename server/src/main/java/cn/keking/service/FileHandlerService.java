@@ -321,12 +321,23 @@ public class FileHandlerService {
                 fullFileName = dataListCom.getFileName();
                 path = dataListCom.getPath();
             } else {
-                fullFileName = bulkDataLink.getName();
-                path = bulkDataLink.getPath();
+                if (bulkDataLink.getDataOids().size() == 1) {
+                    String fileOid = bulkDataLink.getDataOids().get(0);
+                    DataListCom dataListCom = dataListComDao.findFirstByOid(fileOid);
+                    if(dataListCom == null) {
+                        throw new Exception("uid is wrong.");
+                    }
+                    fullFileName = dataListCom.getFileName();
+                    path = dataListCom.getPath();
+                } else {
+                    fullFileName = bulkDataLink.getName() + ".zip";
+                    path = bulkDataLink.getPath();
+                }
             }
             fileName = fullFileName;
             type = FileType.typeFromFileName(fullFileName);
             suffix = KkFileUtils.suffixFromFileName(fullFileName);
+
 
             attribute.setType(type);
             attribute.setName(fileName);
